@@ -1,5 +1,4 @@
 const headingEl = document.getElementById('heading');
-const prismicURL = 'https://netlify-test.cdn.prismic.io/api/v2';
 
 async function getHeading() {
   const txtFile = await fetch('apiKey.txt');
