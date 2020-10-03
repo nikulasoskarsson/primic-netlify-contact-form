@@ -5,12 +5,14 @@ async function getHeading() {
   const txtFile = await fetch('apiKey.txt');
   const apiKey = await txtFile.text();
   console.log(apiKey);
-  let conn = await fetch(`https://netlify-test.prismic.io/api/v1`);
+  let conn = await fetch(
+    `https://netlify-test.prismic.io/api/v1?access_token=${apiKey}`
+  );
   let res = await conn.json();
 
   const masterRef = res.refs[0].ref;
   conn = await fetch(
-    `https://netlify-test.prismic.io/api/v1/documents/search?ref=${masterRef}#format=html`
+    `https://netlify-test.prismic.io/api/v1/documents/search?ref=${masterRef}&access_token=${apiKey}`
   );
   res = await conn.json();
   console.log(res);
