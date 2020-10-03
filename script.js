@@ -1,8 +1,10 @@
 const headingEl = document.getElementById('heading');
 const prismicURL = 'https://netlify-test.cdn.prismic.io/api/v2';
-var apiToken = 'MC5XVHFod1NrQUFDWUE0RVFw...e-_vX5dYu-_vQnvv70';
 
 async function getHeading() {
+  const txtFile = await fetch('apiKey.txt');
+  const apiKey = await txtFile.text();
+  console.log(apiKey);
   let conn = await fetch(`https://netlify-test.prismic.io/api/v1`);
   let res = await conn.json();
 
